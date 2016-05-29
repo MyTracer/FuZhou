@@ -16,6 +16,26 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    // 用户登录验证
+    /*
+     1.读取本地文件
+     2.验证用户
+     */
+    [[UserInfo sharedUserInfo] loadUserInfoFormSandbox];
+    
+    if (![UserInfo sharedUserInfo].loginStatus) {
+#pragma mark - 判断用户名密码正确性（服务器）
+        // 已登录，进入主页
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        self.window.rootViewController = storyboard.instantiateInitialViewController;
+        NSLog(@"进入主页窗口");
+    } else {
+        // 登录窗口
+        NSLog(@"进入登录窗口");
+    }
+    
+    // 注册通知
+    
     // Override point for customization after application launch.
     return YES;
 }

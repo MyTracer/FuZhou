@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Xkf-92-oxa">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="moh-vb-bMe">
+            <objects>
+                <viewController id="Xkf-92-oxa" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bY2-k3-TEf"/>
+                        <viewControllerLayoutGuide type="bottom" id="gyE-Cv-EPi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gaA-Be-wPd">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3cE-0R-tEc">
+                                <rect key="frame" x="285" y="285" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="O6D-Ok-7Aw"/>
+                                    <constraint firstAttribute="height" constant="30" id="f96-vp-kpv"/>
+                                </constraints>
+                                <state key="normal" title="登陆"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="3cE-0R-tEc" firstAttribute="centerX" secondItem="gaA-Be-wPd" secondAttribute="centerX" id="Q1z-Wz-QNl"/>
+                            <constraint firstItem="3cE-0R-tEc" firstAttribute="centerY" secondItem="gaA-Be-wPd" secondAttribute="centerY" id="tZq-KL-K7h"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SMh-6F-XZ3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="301" y="407"/>
+        </scene>
+    </scenes>
+</document>
