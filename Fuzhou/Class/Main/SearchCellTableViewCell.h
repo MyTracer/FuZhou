@@ -10,9 +10,9 @@
 
 @interface SearchCellTableViewCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UILabel *lbPosition;
-@property (weak, nonatomic) IBOutlet UILabel *lbProgress;
-@property (weak, nonatomic) IBOutlet UIView *viewProgress;
+@property (weak, nonatomic) IBOutlet UILabel *lbPosition;// 区段
+@property (weak, nonatomic) IBOutlet UILabel *lbProgress;// 完成量
+@property (weak, nonatomic) IBOutlet UIView *viewProgress;// 进度条位置
 
 
 + (id)initSearchCellwithPosition:(NSString *)position withProgress:(NSString *)progress;

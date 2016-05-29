@@ -24,11 +24,11 @@
     [super viewDidLoad];
     
     // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    //self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    self.tableView.rowHeight=88;
+    //self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
     
     Data *data = [[Data alloc]init];
     [data getJSON];
@@ -46,24 +46,27 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 100;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *ID = @"SearchCell";
+    
+    NSString *ID = @"SearchCell";// 重用标示
     SearchCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
     if (cell == nil) {
+        // 获取cell，并设置进度条
         cell = [SearchCellTableViewCell initSearchCell];
         [cell addProgresswithTotal:10 withComplete:2];
-        
+        // 设置右侧箭头
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
+    //设置具体内容
     cell.lbProgress.text= @"%@,indexPath.row";
     cell.lbPosition.text = @"1";
     
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    
     
     // Configure the cell...
     
