@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "UserInfo.h"
+#import "AFNetworking.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

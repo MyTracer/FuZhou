@@ -7,16 +7,17 @@
 //
 
 #import "AppDelegate.h"
+#import "AFNetworking.h"
 
 @interface AppDelegate ()
-
+@property(nonatomic,strong)AFNetworkReachabilityManager *reachabilityManager;
 @end
 
 @implementation AppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // 用户登录验证
+//     用户登录验证
     /*
      1.读取本地文件
      2.验证用户
@@ -34,10 +35,47 @@
         NSLog(@"进入登录窗口");
     }
     
-    // 注册通知
+//     监听网络状态
+    //创建网络监控对象
+    self.reachabilityManager = [AFNetworkReachabilityManager sharedManager];
+    
+    
+    //设置监听
+    [_reachabilityManager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        switch (status) {
+            case AFNetworkReachabilityStatusUnknown:
+                NSLog(@"未识别的网络");
+                break;
+                
+            case AFNetworkReachabilityStatusNotReachable:
+                NSLog(@"不可达的网络(未连接)");
+                break;
+                
+            case AFNetworkReachabilityStatusReachableViaWWAN:
+                NSLog(@"2G,3G,4G...的网络");
+                break;
+                
+            case AFNetworkReachabilityStatusReachableViaWiFi:
+                NSLog(@"wifi的网络");
+                break;
+            default:
+                break;
+        }
+    }];
+    //开始监听网络状况.
+    [_reachabilityManager startMonitoring];
+    
+    
+//     注册通知
     
     // Override point for customization after application launch.
     return YES;
+}
+
+-(void)dealloc{
+    //停止监听网络状况.
+    [_reachabilityManager stopMonitoring];
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

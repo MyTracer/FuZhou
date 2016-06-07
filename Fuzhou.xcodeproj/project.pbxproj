@@ -26,6 +26,17 @@
 		099B0B261CFB1B590029222D /* AppInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 099B0B251CFB1B590029222D /* AppInfo.m */; };
 		099B0B281CFB1B6C0029222D /* app.plist in Resources */ = {isa = PBXBuildFile; fileRef = 099B0B271CFB1B6C0029222D /* app.plist */; };
 		099B0B2B1CFB1D590029222D /* AppView.m in Sources */ = {isa = PBXBuildFile; fileRef = 099B0B2A1CFB1D590029222D /* AppView.m */; };
+		09C740D31CFC6134002B9A77 /* cbsNetWork.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C740D21CFC6134002B9A77 /* cbsNetWork.m */; };
+		09C740EB1CFC6DE3002B9A77 /* area.plist in Resources */ = {isa = PBXBuildFile; fileRef = 09C740D51CFC6DE3002B9A77 /* area.plist */; };
+		09C740EC1CFC6DE3002B9A77 /* STPickerArea.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C740D71CFC6DE3002B9A77 /* STPickerArea.m */; };
+		09C740ED1CFC6DE3002B9A77 /* NSCalendar+ST.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C740DA1CFC6DE3002B9A77 /* NSCalendar+ST.m */; };
+		09C740EE1CFC6DE3002B9A77 /* STPickerDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C740DC1CFC6DE3002B9A77 /* STPickerDate.m */; };
+		09C740EF1CFC6DE3002B9A77 /* STPickerSingle.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C740DF1CFC6DE3002B9A77 /* STPickerSingle.m */; };
+		09C740F01CFC6DE3002B9A77 /* STConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C740E31CFC6DE3002B9A77 /* STConst.m */; };
+		09C740F11CFC6DE3002B9A77 /* STUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C740E51CFC6DE3002B9A77 /* STUI.m */; };
+		09C740F21CFC6DE3002B9A77 /* UIView+ST.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C740E71CFC6DE3002B9A77 /* UIView+ST.m */; };
+		09C740F31CFC6DE3002B9A77 /* STPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C740EA1CFC6DE3002B9A77 /* STPickerView.m */; };
+		09C740F61CFC6E55002B9A77 /* SelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C740F51CFC6E55002B9A77 /* SelectViewController.m */; };
 		09CDF2701CF9864200DCE40C /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09CDF26F1CF9864200DCE40C /* Login.storyboard */; };
 		09F0AB551CF9470E005F17D2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 09F0AB541CF9470E005F17D2 /* main.m */; };
 		09F0AB581CF9470E005F17D2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 09F0AB571CF9470E005F17D2 /* AppDelegate.m */; };
@@ -74,6 +85,28 @@
 		099B0B271CFB1B6C0029222D /* app.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = app.plist; sourceTree = "<group>"; };
 		099B0B291CFB1D590029222D /* AppView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppView.h; sourceTree = "<group>"; };
 		099B0B2A1CFB1D590029222D /* AppView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppView.m; sourceTree = "<group>"; };
+		09C740D11CFC6134002B9A77 /* cbsNetWork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cbsNetWork.h; sourceTree = "<group>"; };
+		09C740D21CFC6134002B9A77 /* cbsNetWork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = cbsNetWork.m; sourceTree = "<group>"; };
+		09C740D51CFC6DE3002B9A77 /* area.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = area.plist; sourceTree = "<group>"; };
+		09C740D61CFC6DE3002B9A77 /* STPickerArea.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STPickerArea.h; sourceTree = "<group>"; };
+		09C740D71CFC6DE3002B9A77 /* STPickerArea.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STPickerArea.m; sourceTree = "<group>"; };
+		09C740D91CFC6DE3002B9A77 /* NSCalendar+ST.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSCalendar+ST.h"; sourceTree = "<group>"; };
+		09C740DA1CFC6DE3002B9A77 /* NSCalendar+ST.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSCalendar+ST.m"; sourceTree = "<group>"; };
+		09C740DB1CFC6DE3002B9A77 /* STPickerDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STPickerDate.h; sourceTree = "<group>"; };
+		09C740DC1CFC6DE3002B9A77 /* STPickerDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STPickerDate.m; sourceTree = "<group>"; };
+		09C740DE1CFC6DE3002B9A77 /* STPickerSingle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STPickerSingle.h; sourceTree = "<group>"; };
+		09C740DF1CFC6DE3002B9A77 /* STPickerSingle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STPickerSingle.m; sourceTree = "<group>"; };
+		09C740E11CFC6DE3002B9A77 /* STConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STConfig.h; sourceTree = "<group>"; };
+		09C740E21CFC6DE3002B9A77 /* STConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STConst.h; sourceTree = "<group>"; };
+		09C740E31CFC6DE3002B9A77 /* STConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STConst.m; sourceTree = "<group>"; };
+		09C740E41CFC6DE3002B9A77 /* STUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STUI.h; sourceTree = "<group>"; };
+		09C740E51CFC6DE3002B9A77 /* STUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STUI.m; sourceTree = "<group>"; };
+		09C740E61CFC6DE3002B9A77 /* UIView+ST.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ST.h"; sourceTree = "<group>"; };
+		09C740E71CFC6DE3002B9A77 /* UIView+ST.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ST.m"; sourceTree = "<group>"; };
+		09C740E91CFC6DE3002B9A77 /* STPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STPickerView.h; sourceTree = "<group>"; };
+		09C740EA1CFC6DE3002B9A77 /* STPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STPickerView.m; sourceTree = "<group>"; };
+		09C740F41CFC6E55002B9A77 /* SelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectViewController.h; sourceTree = "<group>"; };
+		09C740F51CFC6E55002B9A77 /* SelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectViewController.m; sourceTree = "<group>"; };
 		09CDF26F1CF9864200DCE40C /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		09F0AB501CF9470E005F17D2 /* Fuzhou.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fuzhou.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09F0AB541CF9470E005F17D2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -108,6 +141,8 @@
 				099B0B1F1CFB167A0029222D /* MoreViewController.h */,
 				099B0B201CFB167A0029222D /* MoreViewController.m */,
 				0931BEC71CFAC1F5006F0093 /* DayTableViewController.m */,
+				09C740F41CFC6E55002B9A77 /* SelectViewController.h */,
+				09C740F51CFC6E55002B9A77 /* SelectViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -169,6 +204,59 @@
 				0931BEF01CFAF9EC006F0093 /* MDRadialProgressView.m */,
 			);
 			path = MDProgress;
+			sourceTree = "<group>";
+		};
+		09C740D41CFC6DE3002B9A77 /* Area(地区) */ = {
+			isa = PBXGroup;
+			children = (
+				09C740D51CFC6DE3002B9A77 /* area.plist */,
+				09C740D61CFC6DE3002B9A77 /* STPickerArea.h */,
+				09C740D71CFC6DE3002B9A77 /* STPickerArea.m */,
+			);
+			path = "Area(地区)";
+			sourceTree = "<group>";
+		};
+		09C740D81CFC6DE3002B9A77 /* Date(日期) */ = {
+			isa = PBXGroup;
+			children = (
+				09C740D91CFC6DE3002B9A77 /* NSCalendar+ST.h */,
+				09C740DA1CFC6DE3002B9A77 /* NSCalendar+ST.m */,
+				09C740DB1CFC6DE3002B9A77 /* STPickerDate.h */,
+				09C740DC1CFC6DE3002B9A77 /* STPickerDate.m */,
+			);
+			path = "Date(日期)";
+			sourceTree = "<group>";
+		};
+		09C740DD1CFC6DE3002B9A77 /* Single(单数组) */ = {
+			isa = PBXGroup;
+			children = (
+				09C740DE1CFC6DE3002B9A77 /* STPickerSingle.h */,
+				09C740DF1CFC6DE3002B9A77 /* STPickerSingle.m */,
+			);
+			path = "Single(单数组)";
+			sourceTree = "<group>";
+		};
+		09C740E01CFC6DE3002B9A77 /* STConfig */ = {
+			isa = PBXGroup;
+			children = (
+				09C740E11CFC6DE3002B9A77 /* STConfig.h */,
+				09C740E21CFC6DE3002B9A77 /* STConst.h */,
+				09C740E31CFC6DE3002B9A77 /* STConst.m */,
+				09C740E41CFC6DE3002B9A77 /* STUI.h */,
+				09C740E51CFC6DE3002B9A77 /* STUI.m */,
+				09C740E61CFC6DE3002B9A77 /* UIView+ST.h */,
+				09C740E71CFC6DE3002B9A77 /* UIView+ST.m */,
+			);
+			path = STConfig;
+			sourceTree = "<group>";
+		};
+		09C740E81CFC6DE3002B9A77 /* STPickerView */ = {
+			isa = PBXGroup;
+			children = (
+				09C740E91CFC6DE3002B9A77 /* STPickerView.h */,
+				09C740EA1CFC6DE3002B9A77 /* STPickerView.m */,
+			);
+			path = STPickerView;
 			sourceTree = "<group>";
 		};
 		09CDF2711CF986C800DCE40C /* Model */ = {
@@ -286,6 +374,13 @@
 		09F0AB781CF9499E005F17D2 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				09C740D41CFC6DE3002B9A77 /* Area(地区) */,
+				09C740D81CFC6DE3002B9A77 /* Date(日期) */,
+				09C740DD1CFC6DE3002B9A77 /* Single(单数组) */,
+				09C740E01CFC6DE3002B9A77 /* STConfig */,
+				09C740E81CFC6DE3002B9A77 /* STPickerView */,
+				09C740D11CFC6134002B9A77 /* cbsNetWork.h */,
+				09C740D21CFC6134002B9A77 /* cbsNetWork.m */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -365,6 +460,7 @@
 				0931BECC1CFACCF1006F0093 /* SearchCell.xib in Resources */,
 				09CDF2701CF9864200DCE40C /* Login.storyboard in Resources */,
 				09F0AB631CF9470E005F17D2 /* LaunchScreen.storyboard in Resources */,
+				09C740EB1CFC6DE3002B9A77 /* area.plist in Resources */,
 				09F0AB601CF9470E005F17D2 /* Assets.xcassets in Resources */,
 				09F0AB5E1CF9470E005F17D2 /* Main.storyboard in Resources */,
 			);
@@ -383,17 +479,27 @@
 				099B0B261CFB1B590029222D /* AppInfo.m in Sources */,
 				0931BEDE1CFAD35A006F0093 /* AFSecurityPolicy.m in Sources */,
 				09F0AB841CF969A2005F17D2 /* NavigationController.m in Sources */,
+				09C740F01CFC6DE3002B9A77 /* STConst.m in Sources */,
 				09F0AB581CF9470E005F17D2 /* AppDelegate.m in Sources */,
 				0931BEE01CFAD35A006F0093 /* AFURLResponseSerialization.m in Sources */,
 				09F0AB851CF969A2005F17D2 /* UserInfo.m in Sources */,
+				09C740EF1CFC6DE3002B9A77 /* STPickerSingle.m in Sources */,
+				09C740ED1CFC6DE3002B9A77 /* NSCalendar+ST.m in Sources */,
 				0931BEF21CFAF9EC006F0093 /* MDRadialProgressTheme.m in Sources */,
+				09C740F21CFC6DE3002B9A77 /* UIView+ST.m in Sources */,
 				09F0AB551CF9470E005F17D2 /* main.m in Sources */,
+				09C740F11CFC6DE3002B9A77 /* STUI.m in Sources */,
+				09C740EE1CFC6DE3002B9A77 /* STPickerDate.m in Sources */,
+				09C740EC1CFC6DE3002B9A77 /* STPickerArea.m in Sources */,
+				09C740F61CFC6E55002B9A77 /* SelectViewController.m in Sources */,
+				09C740F31CFC6DE3002B9A77 /* STPickerView.m in Sources */,
 				0931BEDC1CFAD35A006F0093 /* AFHTTPSessionManager.m in Sources */,
 				099B0B2B1CFB1D590029222D /* AppView.m in Sources */,
 				0931BEDF1CFAD35A006F0093 /* AFURLRequestSerialization.m in Sources */,
 				0931BEE11CFAD35A006F0093 /* AFURLSessionManager.m in Sources */,
 				099B0B211CFB167A0029222D /* MoreViewController.m in Sources */,
 				0931BEF11CFAF9EC006F0093 /* MDRadialProgressLabel.m in Sources */,
+				09C740D31CFC6134002B9A77 /* cbsNetWork.m in Sources */,
 				0931BEF31CFAF9EC006F0093 /* MDRadialProgressView.m in Sources */,
 				0931BEDD1CFAD35A006F0093 /* AFNetworkReachabilityManager.m in Sources */,
 				0931BECD1CFACCF1006F0093 /* SearchCellTableViewCell.m in Sources */,

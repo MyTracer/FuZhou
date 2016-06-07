@@ -8,23 +8,21 @@
 
 #import "Data.h"
 #import "AFNetworking.h"
+#import "cbsNetWork.h"
 
 @implementation Data
 - (void)getJSON
 {
-    NSURL *URL = [NSURL URLWithString:@"http://112.124.30.42:8686/api/user"];
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    [manager GET:URL.absoluteString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
-        NSLog(@"JSON: %@", responseObject);
-        NSArray *arr = responseObject;
+    
+    
+    [[cbsNetWork sharedManager] requestWithMethod:GET WithPath:@"get" WithParams:nil WithSuccessBlock:^(NSDictionary *dic) {
+        NSLog(@"%@",dic);
+        NSLog(@"block");
+    } WithFailurBlock:^(NSError *error) {
         
-        for (NSDictionary *dic in arr) {
-            NSLog(@"%@",dic[@"temp_bdname"]);
-        }
-    } failure:^(NSURLSessionTask *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
     }];
-   
+    
+    
     
     
    
