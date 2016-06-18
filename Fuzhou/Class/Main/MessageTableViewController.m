@@ -14,6 +14,7 @@
 #import "MessageSelectViewController.h"
 #import "UserInfo.h"
 #import "MBProgressHUD.h"
+#import "SDRefresh.h"
 
 @interface MessageTableViewController ()
 
@@ -24,6 +25,8 @@
 @property (nonatomic,copy) NSString *endStr;
 
 @property (nonatomic,strong)MBProgressHUD *hud;
+
+@property (nonatomic,strong)SDRefreshHeaderView *refreshHeader;
 
 @end
 
@@ -48,6 +51,17 @@
     
     self.startStr = [[nowday substringToIndex:6] stringByAppendingString:@"01"];;
     self.endStr = nowday;
+    
+    //默认【下拉刷新】
+    self.refreshHeader = [SDRefreshHeaderView refreshView];
+    [self.refreshHeader addToScrollView:self.tableView];
+    
+    [self.refreshHeader addTarget:self refreshAction:@selector(getrefesh)];
+}
+// 下拉刷新
+- (void)getrefesh{
+    [self getData];
+    [self.refreshHeader endRefreshing];
 }
 
 - (void)getData{

@@ -14,6 +14,8 @@
 #import "SelectViewController.h"
 #import "UserInfo.h"
 #import "MBProgressHUD.h"
+#import "SDRefresh.h"
+
 
 @interface DayTableViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *lbPositon;
@@ -24,6 +26,7 @@
 
 @property (nonatomic,strong)MBProgressHUD *hud;
 
+@property (nonatomic,strong)SDRefreshHeaderView *refreshHeader;
 @end
 
 @implementation DayTableViewController
@@ -47,6 +50,16 @@
     self.dateStr = yesterday;
     [self login];
     
+    //默认【下拉刷新】
+    self.refreshHeader = [SDRefreshHeaderView refreshView];
+    [self.refreshHeader addToScrollView:self.tableView];
+
+    [self.refreshHeader addTarget:self refreshAction:@selector(getrefesh)];
+}
+// 下拉刷新
+- (void)getrefesh{
+    [self getData];
+    [self.refreshHeader endRefreshing];
 }
 
 - (void)getData{
