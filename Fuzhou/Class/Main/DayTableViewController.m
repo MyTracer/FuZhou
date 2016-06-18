@@ -28,38 +28,31 @@
 
 @implementation DayTableViewController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     // Uncomment the following line to preserve selection between presentations.
     //self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     //self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    // 测试数据
+//     初始数据
+    NSDate *pickerDate = [NSDate dateWithTimeIntervalSinceNow:-(24*60*60)]; // 获取时间
+    NSDateFormatter *pickerFormatter = [[NSDateFormatter alloc] init]; // 时间格式器
+    [pickerFormatter setDateFormat:@"yyyyMMdd"];
+    // 时间昨天
+    NSString *yesterday = [pickerFormatter stringFromDate:pickerDate];
     self.idStr = @"02020003";
-    self.dateStr = @"20160601";
-    //[self login];
+    self.dateStr = yesterday;
+    [self login];
     
-//    UITabBar *myTb=self.tabBarController.tabBar;
-//    for(UITabBarItem *utb in myTb.items)
-//    {
-//        if( ![utb.title isEqualToString:@"个人资料"] )
-//        {
-//            utb.enabled=NO;
-//        }
-//        else {
-//            utb.enabled=YES;
-//            self.tabBarController.selectedIndex=0;
-//        }
-//    }
 }
 
 - (void)getData{
-    // 请求参数
-    
-    
+    // 加载等待
+    [self.hud hideAnimated:YES];
+    self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     //     请求的manager
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.requestSerializer.timeoutInterval = 10.f;
@@ -71,15 +64,21 @@
      *          success - 请求成功回调的block
      *          failure - 请求失败回调的block
      */
-    [manager GET:@"http://192.168.195.43:2683/api/Progress/GetRileiDetail" parameters:parameter progress:nil success:^(NSURLSessionTask *task, NSArray *responseObject) {
+    [manager GET:@"http://112.124.30.42:8686/api/Progress/GetRileiDetail" parameters:parameter progress:nil success:^(NSURLSessionTask *task, NSArray *responseObject) {
         
         self.workData = [WorkDataModel workDatawithArray:responseObject];
 //        NSLog(@"%d",self.workData.count);
         [self.tableView reloadData];
+        // 加载完毕，取消提示
+        dispatch_async(dispatch_get_main_queue(), ^{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.hud hideAnimated:YES];
+            });
+        });
         
         
     } failure:^(NSURLSessionTask *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
+        [self tellBackwithText:@"加载出错" withPic:@"Checkmark"];
     }];
 
 }
@@ -118,7 +117,6 @@
     
     
     // Configure the cell...
-    
     return cell;
 }
 
@@ -154,19 +152,20 @@
         }];
     }
 }
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:YES];
-    [self getData];
-    NSLog(@"视图即将显示");
-}
+
 // day/month选择切换事件
 - (IBAction)segment:(UISegmentedControl *)sender {
+    
+    NSDate *pickerDate = [NSDate dateWithTimeIntervalSinceNow:-(24*60*60)]; // 获取时间
+    NSDateFormatter *pickerFormatter = [[NSDateFormatter alloc] init]; // 时间格式器
+    [pickerFormatter setDateFormat:@"yyyyMMdd"];
+    // 时间昨天
+    NSString *yesterday = [pickerFormatter stringFromDate:pickerDate];
     NSUInteger index = sender.selectedSegmentIndex;
     switch (index) {
         case 0:
-            // 改为今天
-            self.dateStr = [[self.dateStr substringToIndex:6] stringByAppendingString:@"01"];
+            // 改为昨天
+            self.dateStr = yesterday;
             break;
         case 1:
             self.dateStr = [[self.dateStr substringToIndex:6] stringByAppendingString:@"00"];
@@ -191,14 +190,20 @@
      *          success - 请求成功回调的block
      *          failure - 请求失败回调的block
      */
-    [manager GET:@"http://192.168.195.43:2683/api/User/GetLogin" parameters:parameter progress:nil success:^(NSURLSessionTask *task, NSDictionary *responseObject) {
+    [manager GET:@"http://112.124.30.42:8686/api/User/GetLogin" parameters:parameter progress:nil success:^(NSURLSessionTask *task, NSDictionary *responseObject) {
         [self loginwith:responseObject];
         NSLog(@"请求成功");
         
         
     } failure:^(NSURLSessionTask *operation, NSError *error) {
         NSLog(@"进入登录窗口");
-        [self enterLoginPage];
+        [self tellBackwithText:@"信息错误" withPic:@"Checkmark"];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self enterLoginPage];
+            });
+        });
+        
     }];
     
 }
@@ -217,10 +222,16 @@
     
     NSLog(@"%@",userinfo.userId);
     if ([userinfo.userId isEqualToString:@""]) {
-        NSLog(@"error");
+        
         NSLog(@"进入登录窗口");
-        [self enterLoginPage];
+        [self tellBackwithText:@"信息错误" withPic:@"Checkmark"];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self enterLoginPage];
+            });
+        });
     }else{
+        NSLog(@"登录成功");
         [userinfo saveUserInfoToSandbox];
         
     }
@@ -237,6 +248,38 @@
     self.view.window.rootViewController = storyboard.instantiateInitialViewController;
     
     
+}
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:YES];
+    [self getData];
+    
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:YES];
+    [self.hud hideAnimated:YES];
+}
+
+// 相关提示
+- (void)tellBackwithText:(NSString *)text withPic:(NSString *)pic{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.hud hideAnimated:YES];
+        self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        
+        // Set the custom view mode to show any view.
+        self.hud.mode = MBProgressHUDModeCustomView;
+        // Set an image view with a checkmark.
+        UIImage *image = [[UIImage imageNamed:pic] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+        self.hud.customView = [[UIImageView alloc] initWithImage:image];
+        // Looks a bit nicer if we make it square.
+        self.hud .square = YES;
+        // Optional label text.
+        self.hud.label.text = NSLocalizedString(text, @"HUD done title");
+        
+        [self.hud hideAnimated:YES afterDelay:1.f];
+    });
 }
 
 @end

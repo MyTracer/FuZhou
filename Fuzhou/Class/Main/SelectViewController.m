@@ -12,15 +12,18 @@
 #import "STPickerSingle.h"
 #import "STPickerDate.h"
 #import <QuartzCore/QuartzCore.h>
+#import "MBProgressHUD.h"
 
-@interface SelectViewController ()<UITextFieldDelegate, STPickerAreaDelegate, STPickerSingleDelegate, STPickerDateDelegate>
+@interface SelectViewController ()<UITextFieldDelegate, STPickerAreaDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *textArea;
-@property (weak, nonatomic) IBOutlet UITextField *textSingle;
-@property (weak, nonatomic) IBOutlet UITextField *textDate;
-@property (weak, nonatomic) IBOutlet UITextView *textAll;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *Segmodel;
+@property (weak, nonatomic) IBOutlet UIDatePicker *datepicker;
+
 
 @property (nonatomic,copy) NSString *idStr;
 @property (nonatomic,copy) NSString *dateStr;
+
+@property (nonatomic,strong)MBProgressHUD *hud;
 
 @end
 
@@ -31,12 +34,19 @@
     self.returnTextBlock = textBlock;
 }
 - (IBAction)okbtnClick:(UIBarButtonItem *)sender {
-    if ([self.textArea.text isEqualToString:@""]||[self.textSingle.text isEqualToString:@""]||[self.textDate.text isEqualToString:@""]) {
-        NSLog(@"请选择条件");
+    if ([self.textArea.text isEqualToString:@""]) {
+        [self tellBackwithText:@"确认条件" withPic:@"Checkmark"];
     }else{
-        if ([self.textSingle.text isEqualToString:@"月"]) {
+        // 提取时间
+        NSDate *pickerDate = [self.datepicker date]; // 获取时间
+        NSDateFormatter *pickerFormatter = [[NSDateFormatter alloc] init]; // 时间格式器
+        [pickerFormatter setDateFormat:@"yyyyMMdd"];
+        self.dateStr = [pickerFormatter stringFromDate:pickerDate];
+        // 判断模式
+        if (self.Segmodel.selectedSegmentIndex == 1) {
             self.dateStr = [[self.dateStr substringToIndex:6] stringByAppendingString:@"00"];
         }
+        // 返回参数
         self.returnTextBlock(self.idStr,self.dateStr);
         [self dismissViewControllerAnimated:YES completion:nil];
     }
@@ -53,11 +63,6 @@
     [super viewDidLoad];
     
     self.textArea.delegate = self;
-    self.textSingle.delegate = self;
-    self.textDate.delegate = self;
-    
-    self.textAll.layer.borderColor = UIColor.grayColor.CGColor;
-    self.textAll.layer.borderWidth = 5;
     
     self.dateStr = nil;
     self.idStr = nil;
@@ -70,44 +75,11 @@
 {
     if (textField == self.textArea) {
         [self.textArea resignFirstResponder];
-        
-        
         STPickerArea *pickerArea = [[STPickerArea alloc]init];
         [pickerArea setDelegate:self];
         [pickerArea setContentMode:STPickerContentModeCenter];
         [pickerArea show];
-        
     }
-    
-    if (textField == self.textSingle) {
-        [self.textSingle resignFirstResponder];
-        
-        NSMutableArray *arrayData = [NSMutableArray array];
-//        for (int i = 1; i < 1000; i++) {
-//            NSString *string = [NSString stringWithFormat:@"%d", i];
-//            [arrayData addObject:string];
-//        }
-        [arrayData addObject:[NSString stringWithFormat:@"天"]];
-        [arrayData addObject:[NSString stringWithFormat:@"月"]];
-        
-        STPickerSingle *pickerSingle = [[STPickerSingle alloc]init];
-        [pickerSingle setArrayData:arrayData];
-        [pickerSingle setTitle:@"请选择查询模式"];
-        [pickerSingle setTitleUnit:@""];
-        [pickerSingle setContentMode:STPickerContentModeCenter];
-        [pickerSingle setDelegate:self];
-        [pickerSingle show];
-    }
-    
-    
-    if (textField == self.textDate) {
-        [self.textDate resignFirstResponder];
-        
-        STPickerDate *pickerDate = [[STPickerDate alloc]init];
-        [pickerDate setDelegate:self];
-        [pickerDate show];
-    }
-    
 }
 
 - (void)pickerArea:(STPickerArea *)pickerArea province:(NSString *)province city:(NSString *)city area:(NSString *)area
@@ -115,58 +87,11 @@
     NSString *text = [NSString stringWithFormat:@"%@,%@,%@", province, city, area];
     
     self.textArea.text = text;
-    [self filltextAll];
     
     self.idStr = [[area componentsSeparatedByString:@","]firstObject];
     
 }
 
-- (void)pickerSingle:(STPickerSingle *)pickerSingle selectedTitle:(NSString *)selectedTitle
-{
-    NSString *text = [NSString stringWithFormat:@"%@", selectedTitle];
-    self.textSingle.text = text;
-    
-    [self filltextAll];
-}
-
-- (void)pickerDate:(STPickerDate *)pickerDate year:(NSInteger)year month:(NSInteger)month day:(NSInteger)day
-{
-    NSString *strmonth = (month%10 == month)?[NSString stringWithFormat:@"0%ld",(long)month]:[NSString stringWithFormat:@"%ld",(long)month];
-    NSString *strday = (day%10 == day)?[NSString stringWithFormat:@"0%ld",(long)day]:[NSString stringWithFormat:@"%ld",(long)day ];
-    NSString *text = [NSString stringWithFormat:@"%ld-%@-%@", (long)year, strmonth, strday];
-//    NSString *text = [NSString stringWithFormat:@"%ld年%ld月%ld日", (long)year, (long)month, (long)day];
-    self.textDate.text = text;
-    
-    [self filltextAll];
-    
-    self.dateStr = [self.textDate.text stringByReplacingOccurrencesOfString: @"-" withString: @""];
-}
-
-- (void)filltextAll{
-    NSString *textStr = @"提示：请确认选择内容。\n\n";
-    textStr = [textStr stringByAppendingString:@"  区段：\n\n"];
-    if (![self.textArea.text isEqualToString:@""]) {
-        NSString *temp = [self.textArea.text stringByReplacingOccurrencesOfString: @"," withString: @"\n"];
-        textStr = [textStr stringByAppendingString:temp];
-    }
-    textStr = [textStr stringByAppendingString:@"\n"];
-    
-    textStr = [textStr stringByAppendingString:@"  时间：\n\n"];
-    if (![self.textDate.text isEqualToString:@""]) {
-        NSString *temp = [self.textDate.text stringByReplacingOccurrencesOfString: @"," withString: @"-"];
-        textStr = [textStr stringByAppendingString:temp];
-    }
-    textStr = [textStr stringByAppendingString:@"\n"];
-    
-    textStr = [textStr stringByAppendingString:@"  模式：\n\n"];
-    if (![self.textSingle.text isEqualToString:@""]) {
-        NSString *temp = [self.textSingle.text stringByReplacingOccurrencesOfString: @"," withString: @"\n"];
-        textStr = [textStr stringByAppendingString:temp];
-    }
-    textStr = [textStr stringByAppendingString:@"\n"];
-    
-    self.textAll.text = textStr;
-}
 #pragma mark - --- event response 事件相应 ---
 
 #pragma mark - --- private methods 私有方法 ---
@@ -179,6 +104,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:YES];
+    [self.hud hideAnimated:YES];
+}
+
 /*
 #pragma mark - Navigation
 
@@ -188,5 +119,24 @@
     // Pass the selected object to the new view controller.
 }
 */
+// 相关提示
+- (void)tellBackwithText:(NSString *)text withPic:(NSString *)pic{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.hud hideAnimated:YES];
+        self.hud  = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        
+        // Set the custom view mode to show any view.
+        self.hud .mode = MBProgressHUDModeCustomView;
+        // Set an image view with a checkmark.
+        UIImage *image = [[UIImage imageNamed:pic] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+        self.hud .customView = [[UIImageView alloc] initWithImage:image];
+        // Looks a bit nicer if we make it square.
+        self.hud .square = YES;
+        // Optional label text.
+        self.hud.label.text = NSLocalizedString(text, @"HUD done title");
+        
+        [self.hud hideAnimated:YES afterDelay:1.f];
+    });
+}
 
 @end

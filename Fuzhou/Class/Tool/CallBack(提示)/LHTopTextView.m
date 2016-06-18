@@ -140,6 +140,9 @@
 #pragma mark -处理取消点击事件
 
 -(void)clickCancel:(id)sender{
+    if(self.textView.editable){
+        [self.textView resignFirstResponder];
+    }
     if(self.closeBlock){
         self.closeBlock();
     }

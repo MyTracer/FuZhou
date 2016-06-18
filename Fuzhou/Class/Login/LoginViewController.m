@@ -18,6 +18,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *pwd;
 @property (weak, nonatomic) IBOutlet UIButton *loginbtn;
 @property (nonatomic,strong)MBProgressHUD *hud;
+@property (nonatomic,copy) NSString *lgntext;
+@property (nonatomic,copy) NSString *pwdtext;
 
 @end
 
@@ -30,15 +32,14 @@
 - (IBAction)loginbtnClick:(id)sender {
     [self.view endEditing:YES];
     // 请求参数
-    NSString *lgn =  self.user.text;
-    NSString *pwd = [self.pwd.text md5String];
-    if ([lgn isEqualToString:@""]||[pwd isEqualToString:@""]) {
-        NSLog(@"请输入完整信息");
+    self.lgntext =  [self.user.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    self.pwdtext = [[self.pwd.text md5String] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    if ([self.lgntext isEqualToString:@""]||[self.pwdtext isEqualToString:@""]||[self.pwdtext isEqualToString:@"d41d8cd98f00b204e9800998ecf8427e"]) {
+        [self tellBackwithText:@"请填写完整" withPic:@"Checkmark"];
     }else
     {
    
         self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    
         [self login];
     }
     
@@ -46,13 +47,11 @@
 }
 
 - (void)login{
-    // 请求参数
-    NSString *lgn =  self.user.text;
-    NSString *pwd = [self.pwd.text md5String];
+    
     //     请求的manager
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.requestSerializer.timeoutInterval = 10.f;
-    NSDictionary *parameter = @{@"lgn":lgn,@"pwd":pwd};
+    NSDictionary *parameter = @{@"lgn":self.lgntext,@"pwd":self.pwdtext};
     /*
      * desc  : 提交POST请求
      * param :  URLString - 请求地址
@@ -60,28 +59,13 @@
      *          success - 请求成功回调的block
      *          failure - 请求失败回调的block
      */
-    [manager GET:@"http://192.168.195.43:2683/api/User/GetLogin" parameters:parameter progress:nil success:^(NSURLSessionTask *task, NSDictionary *responseObject) {
+    [manager GET:@"http://112.124.30.42:8686/api/User/GetLogin" parameters:parameter progress:nil success:^(NSURLSessionTask *task, NSDictionary *responseObject) {
         [self loginwith:responseObject];
         NSLog(@"请求成功");
         
     } failure:^(NSURLSessionTask *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.hud hideAnimated:YES];
-            MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-            
-            // Set the custom view mode to show any view.
-            hud.mode = MBProgressHUDModeCustomView;
-            // Set an image view with a checkmark.
-            UIImage *image = [[UIImage imageNamed:@"Checkmark"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-            hud.customView = [[UIImageView alloc] initWithImage:image];
-            // Looks a bit nicer if we make it square.
-            hud.square = YES;
-            // Optional label text.
-            hud.label.text = NSLocalizedString(@"Done", @"HUD done title");
-            
-            [hud hideAnimated:YES afterDelay:3.f];
-        });
+        NSLog(@"请求失败");
+        [self tellBackwithText:@"请求失败" withPic:@"Checkmark"];
     }];
 }
 
@@ -89,8 +73,8 @@
     // NSLog(@"%@",response);
     
     UserInfo *userinfo = [UserInfo sharedUserInfo];
-    userinfo.user = self.user.text;
-    userinfo.pwd = self.pwd.text;
+    userinfo.user = self.lgntext;
+    userinfo.pwd = self.pwdtext;
 //    userinfo.userId = [NSString stringWithFormat:@"%@",response[@"userId"] ];
     userinfo.userId = response[@"userId"];
     userinfo.loginStatus = YES;
@@ -104,7 +88,7 @@
         [userinfo saveUserInfoToSandbox];
         dispatch_async(dispatch_get_main_queue(), ^{
             dispatch_async(dispatch_get_main_queue(), ^{
-                
+                [self.hud hideAnimated:YES];
                
                 [self enterMainPage];
             });
@@ -114,22 +98,7 @@
     }
     else
     {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.hud hideAnimated:YES];
-            MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-            
-            // Set the custom view mode to show any view.
-            hud.mode = MBProgressHUDModeCustomView;
-            // Set an image view with a checkmark.
-            UIImage *image = [[UIImage imageNamed:@"Checkmark"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-            hud.customView = [[UIImageView alloc] initWithImage:image];
-            // Looks a bit nicer if we make it square.
-            hud.square = YES;
-            // Optional label text.
-            hud.label.text = NSLocalizedString(@"请重新确认", @"HUD done title");
-            
-            [hud hideAnimated:YES afterDelay:3.f];
-        });
+        [self tellBackwithText:@"信息错误" withPic:@"Checkmark"];
     }
     
 }
@@ -169,6 +138,7 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:YES];
+//    视图消失时，取消
     [self.hud hideAnimated:YES];
     
 }
@@ -181,6 +151,25 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+// 相关提示
+- (void)tellBackwithText:(NSString *)text withPic:(NSString *)pic{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.hud hideAnimated:YES];
+        self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        
+        // Set the custom view mode to show any view.
+        self.hud.mode = MBProgressHUDModeCustomView;
+        // Set an image view with a checkmark.
+        UIImage *image = [[UIImage imageNamed:pic] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+        self.hud.customView = [[UIImageView alloc] initWithImage:image];
+        // Looks a bit nicer if we make it square.
+        self.hud.square = YES;
+        // Optional label text.
+        self.hud.label.text = NSLocalizedString(text, @"HUD done title");
+        
+        [self.hud hideAnimated:YES afterDelay:1.f];
+    });
 }
 
 /*

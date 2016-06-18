@@ -13,6 +13,7 @@
 #import "AFNetworking.h"
 #import "MessageSelectViewController.h"
 #import "UserInfo.h"
+#import "MBProgressHUD.h"
 
 @interface MessageTableViewController ()
 
@@ -21,6 +22,9 @@
 
 @property (nonatomic,copy) NSString *startStr;
 @property (nonatomic,copy) NSString *endStr;
+
+@property (nonatomic,strong)MBProgressHUD *hud;
+
 @end
 
 @implementation MessageTableViewController
@@ -35,12 +39,21 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     // 测试数据
-    self.startStr = @"20160601";
-    self.endStr = @"20160610";
+    //     初始数据
+    NSDate *pickerDate = [NSDate date]; // 获取时间
+    NSDateFormatter *pickerFormatter = [[NSDateFormatter alloc] init]; // 时间格式器
+    [pickerFormatter setDateFormat:@"yyyyMMdd"];
+    // 时间月初至今
+    NSString *nowday = [pickerFormatter stringFromDate:pickerDate];
+    
+    self.startStr = [[nowday substringToIndex:6] stringByAppendingString:@"01"];;
+    self.endStr = nowday;
 }
 
 - (void)getData{
-    // 请求参数
+    // 加载等待
+    [self.hud hideAnimated:YES];
+    self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
     
     //     请求的manager
@@ -54,15 +67,19 @@
      *          success - 请求成功回调的block
      *          failure - 请求失败回调的block
      */
-    [manager GET:@"http://192.168.195.43:2683/api/Push/GetPishiHistoryByDate" parameters:parameter progress:nil success:^(NSURLSessionTask *task, NSArray *responseObject) {
+    [manager GET:@"http://112.124.30.42:8686/api/Push/GetPishiHistoryByDate" parameters:parameter progress:nil success:^(NSURLSessionTask *task, NSArray *responseObject) {
         
         self.messageData = [MessageDataModel messageDatawithArray:responseObject];
         // NSLog(@"%d",self.messageData.count);
         [self.tableView reloadData];
-        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.hud hideAnimated:YES];
+            });
+        });
         
     } failure:^(NSURLSessionTask *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
+        [self tellBackwithText:@"加载出错" withPic:@"Checkmark"];
     }];
     
 }
@@ -135,7 +152,32 @@
 {
     [super viewDidAppear:YES];
     [self getData];
-    NSLog(@"视图即将显示");
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:YES];
+    [self.hud hideAnimated:YES];
+}
+
+// 相关提示
+- (void)tellBackwithText:(NSString *)text withPic:(NSString *)pic{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.hud hideAnimated:YES];
+        self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        
+        // Set the custom view mode to show any view.
+        self.hud.mode = MBProgressHUDModeCustomView;
+        // Set an image view with a checkmark.
+        UIImage *image = [[UIImage imageNamed:pic] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+        self.hud.customView = [[UIImageView alloc] initWithImage:image];
+        // Looks a bit nicer if we make it square.
+        self.hud .square = YES;
+        // Optional label text.
+        self.hud.label.text = NSLocalizedString(text, @"HUD done title");
+        
+        [self.hud hideAnimated:YES afterDelay:1.f];
+    });
 }
 
 @end

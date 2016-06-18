@@ -34,7 +34,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    NSLog(@"1");
+    
 }
 
 - (void)didReceiveMemoryWarning {
