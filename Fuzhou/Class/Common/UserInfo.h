@@ -8,20 +8,26 @@
 
 #import <Foundation/Foundation.h>
 #import "Singleton.h"
-static NSString *domain = @"teacher.local";
+
 @interface UserInfo : NSObject
 singleton_interface(UserInfo);
-@property (nonatomic,copy) NSString *user;
-@property (nonatomic,copy) NSString *pwd;
+@property (nonatomic,copy) NSString *user; // 登录名
+@property (nonatomic,copy) NSString *pwd;  // 密码
 // 登录状态
 @property (nonatomic,assign) BOOL loginStatus;
+@property (nonatomic,copy) NSString *userId;
 
-@property (nonatomic,copy) NSString *registerUser;
-@property (nonatomic,copy) NSString *registerPwd;
+@property (nonatomic,copy) NSString *userName; // 用户名
+@property (nonatomic,copy) NSString *departName; // 部门
+@property (nonatomic,copy) NSString *dutyName; // 职务
+@property (nonatomic,copy) NSString *cellPhone; // 手机号码
+@property (nonatomic,copy) NSString *roleName; // 角色
 
-@property (nonatomic,copy) NSString *jid;
+
 // 保存数据到沙盒
 - (void)saveUserInfoToSandbox;
 // 获取沙盒数据
 - (void)loadUserInfoFormSandbox;
+
+
 @end

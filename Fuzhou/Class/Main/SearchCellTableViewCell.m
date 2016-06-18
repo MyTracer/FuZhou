@@ -46,11 +46,14 @@
     
     radialView.progressTotal = numtotal;
     radialView.progressCounter = numcomplete;
-    radialView.theme.completedColor = [UIColor colorWithRed:247/255.0 green:247/255.0 blue:247/255.0 alpha:1.0];
-    radialView.theme.incompletedColor = [UIColor blackColor];
+    // radialView.theme.completedColor = [UIColor colorWithRed:247/255.0 green:247/255.0 blue:247/255.0 alpha:1.0];
+    radialView.theme.incompletedColor = [UIColor whiteColor];
     radialView.theme.thickness = 10;
     radialView.theme.sliceDividerHidden = YES;
-    radialView.theme.centerColor = radialView.theme.completedColor;
+    //radialView.theme.centerColor = radialView.theme.completedColor;
+    
+    radialView.theme.completedColor = [UIColor blackColor];
+    radialView.theme.centerColor = [UIColor colorWithRed:229/255.0 green:237/255.0 blue:209/255.0 alpha:1.0];
     
     self.viewProgress.backgroundColor = [UIColor whiteColor];
     

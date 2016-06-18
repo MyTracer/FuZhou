@@ -8,8 +8,13 @@
 
 #import <UIKit/UIKit.h>
 @class SearchCellTableViewCell;
-#import "Data.h"
+@class AFNetworking;
+@class WorkDataModel;
+@class DayDetailTableViewController;
+@class SelectViewController;
+@class UserInfo;
+
 
 @interface DayTableViewController : UITableViewController
-
+@property (nonatomic,strong) NSArray *workData;
 @end

@@ -10,6 +10,11 @@
 #import "UserInfo.h"
 #import "AFNetworking.h"
 
+// 必须信息
+static NSString *appKey = @"70d7c2288e68a3c1771bfc2d";
+static NSString *channel = @"Publish channel";
+static BOOL isProduction = FALSE;
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;

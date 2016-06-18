@@ -179,7 +179,7 @@
 - (NSArray *)arrayRoot
 {
     if (!_arrayRoot) {
-        NSString *path = [[NSBundle mainBundle]pathForResource:@"area" ofType:@"plist"];
+        NSString *path = [[NSBundle mainBundle]pathForResource:@"List" ofType:@"plist"];
         _arrayRoot = [[NSArray alloc]initWithContentsOfFile:path];
     }
     return _arrayRoot;

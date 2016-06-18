@@ -3,12 +3,13 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="moh-vb-bMe">
             <objects>
-                <viewController id="Xkf-92-oxa" sceneMemberID="viewController">
+                <viewController id="Xkf-92-oxa" customClass="LoginViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bY2-k3-TEf"/>
                         <viewControllerLayoutGuide type="bottom" id="gyE-Cv-EPi"/>
@@ -17,25 +18,91 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3cE-0R-tEc">
-                                <rect key="frame" x="285" y="285" width="30" height="30"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HVk-QU-caf">
+                                <rect key="frame" x="20" y="150" width="560" height="300"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入用户名" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="O2B-WW-20f">
+                                        <rect key="frame" x="0.0" y="8" width="560" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="Mst-JQ-hEq"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="userEdit:" destination="Xkf-92-oxa" eventType="editingChanged" id="Fdy-Nh-7jC"/>
+                                        </connections>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V1t-bs-OSZ">
+                                        <rect key="frame" x="0.0" y="262" width="560" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="Y1U-QV-dTE"/>
+                                        </constraints>
+                                        <state key="normal" title="取消" backgroundImage="buttongreen"/>
+                                        <state key="highlighted" backgroundImage="buttongreen_highlighted"/>
+                                        <connections>
+                                            <action selector="cancelbtnClick:" destination="Xkf-92-oxa" eventType="touchUpInside" id="7I9-7V-DMy"/>
+                                        </connections>
+                                    </button>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入密码" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="y7f-OV-azx">
+                                        <rect key="frame" x="0.0" y="63" width="560" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="OTu-La-Jrt"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <connections>
+                                            <action selector="pwdEdit:" destination="Xkf-92-oxa" eventType="editingChanged" id="tNJ-XM-fxh"/>
+                                        </connections>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2WS-SF-8Ob">
+                                        <rect key="frame" x="0.0" y="190" width="560" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="jNI-pg-N91"/>
+                                        </constraints>
+                                        <state key="normal" title="登录" backgroundImage="buttongreen"/>
+                                        <state key="highlighted" backgroundImage="buttongreen_highlighted"/>
+                                        <connections>
+                                            <action selector="loginbtnClick:" destination="Xkf-92-oxa" eventType="touchUpInside" id="BRj-Of-c66"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="O6D-Ok-7Aw"/>
-                                    <constraint firstAttribute="height" constant="30" id="f96-vp-kpv"/>
+                                    <constraint firstItem="y7f-OV-azx" firstAttribute="top" secondItem="O2B-WW-20f" secondAttribute="bottom" constant="25" id="0Nf-Y7-M26"/>
+                                    <constraint firstItem="y7f-OV-azx" firstAttribute="leading" secondItem="HVk-QU-caf" secondAttribute="leading" id="39u-1S-b2S"/>
+                                    <constraint firstAttribute="trailing" secondItem="V1t-bs-OSZ" secondAttribute="trailing" id="4LE-5u-6ZO"/>
+                                    <constraint firstItem="2WS-SF-8Ob" firstAttribute="leading" secondItem="HVk-QU-caf" secondAttribute="leading" id="5ju-mr-oIO"/>
+                                    <constraint firstAttribute="trailing" secondItem="O2B-WW-20f" secondAttribute="trailing" id="Klb-lh-H6V"/>
+                                    <constraint firstAttribute="trailing" secondItem="2WS-SF-8Ob" secondAttribute="trailing" id="MWx-n1-pqT"/>
+                                    <constraint firstAttribute="height" constant="300" id="PzY-Be-ARJ"/>
+                                    <constraint firstItem="V1t-bs-OSZ" firstAttribute="top" secondItem="2WS-SF-8Ob" secondAttribute="bottom" constant="42" id="Sjm-8m-F0q"/>
+                                    <constraint firstAttribute="bottom" secondItem="V1t-bs-OSZ" secondAttribute="bottom" constant="8" id="YZn-2J-aRA"/>
+                                    <constraint firstItem="V1t-bs-OSZ" firstAttribute="leading" secondItem="HVk-QU-caf" secondAttribute="leading" id="h22-x4-WzB"/>
+                                    <constraint firstItem="O2B-WW-20f" firstAttribute="leading" secondItem="HVk-QU-caf" secondAttribute="leading" id="hv0-6q-ljX"/>
+                                    <constraint firstItem="O2B-WW-20f" firstAttribute="top" secondItem="HVk-QU-caf" secondAttribute="top" constant="8" id="pw0-cb-ObF"/>
+                                    <constraint firstAttribute="trailing" secondItem="y7f-OV-azx" secondAttribute="trailing" id="qyF-hx-hma"/>
                                 </constraints>
-                                <state key="normal" title="登陆"/>
-                            </button>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="3cE-0R-tEc" firstAttribute="centerX" secondItem="gaA-Be-wPd" secondAttribute="centerX" id="Q1z-Wz-QNl"/>
-                            <constraint firstItem="3cE-0R-tEc" firstAttribute="centerY" secondItem="gaA-Be-wPd" secondAttribute="centerY" id="tZq-KL-K7h"/>
+                            <constraint firstItem="HVk-QU-caf" firstAttribute="centerY" secondItem="gaA-Be-wPd" secondAttribute="centerY" id="KpD-VH-cmV"/>
+                            <constraint firstItem="HVk-QU-caf" firstAttribute="leading" secondItem="gaA-Be-wPd" secondAttribute="leadingMargin" id="dXf-hw-kPf"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="HVk-QU-caf" secondAttribute="trailing" id="uYR-9F-bEz"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="loginbtn" destination="2WS-SF-8Ob" id="0h0-UF-tR9"/>
+                        <outlet property="pwd" destination="y7f-OV-azx" id="lIz-lh-0vA"/>
+                        <outlet property="user" destination="O2B-WW-20f" id="agx-ZD-bTH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SMh-6F-XZ3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="301" y="407"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="buttongreen" width="193" height="81"/>
+        <image name="buttongreen_highlighted" width="193" height="81"/>
+    </resources>
 </document>

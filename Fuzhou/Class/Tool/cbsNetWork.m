@@ -16,7 +16,7 @@
     static cbsNetWork *manager = nil;
     static dispatch_once_t pred;
     dispatch_once(&pred, ^{
-        manager = [[self alloc] initWithBaseURL:[NSURL URLWithString:@"http://112.124.30.42:8686/api/user"]];
+        manager = [[self alloc] initWithBaseURL:[NSURL URLWithString:@""]];
     });
     return manager;
 }
@@ -44,9 +44,10 @@
          WithSuccessBlock:(requestSuccessBlock)success
           WithFailurBlock:(requestFailureBlock)failure
 {
+    NSString *url = @"http://112.124.30.42:8686/api/user";
     switch (method) {
         case GET:{
-            [self GET:path parameters:params progress:nil success:^(NSURLSessionTask *task, NSDictionary * responseObject) {
+            [self GET:url parameters:params progress:nil success:^(NSURLSessionTask *task, NSDictionary * responseObject) {
                 NSLog(@"JSON: %@", responseObject);
                 success(responseObject);
             } failure:^(NSURLSessionTask *operation, NSError *error) {
