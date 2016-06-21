@@ -15,6 +15,8 @@
 #import "UserInfo.h"
 #import "MBProgressHUD.h"
 #import "SDRefresh.h"
+#import "AppDelegate.h"
+#import "JPUSHService.h"
 
 
 @interface DayTableViewController ()
@@ -34,6 +36,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
+    
+    
+    
     // Uncomment the following line to preserve selection between presentations.
     //self.clearsSelectionOnViewWillAppear = NO;
     
@@ -46,8 +53,12 @@
     [pickerFormatter setDateFormat:@"yyyyMMdd"];
     // 时间昨天
     NSString *yesterday = [pickerFormatter stringFromDate:pickerDate];
-    self.idStr = @"02020003";
-    self.dateStr = yesterday;
+    // 通知传值
+    AppDelegate *app = [[UIApplication sharedApplication] delegate];
+    
+    self.idStr =  app.idStr==nil?@"02020003":app.idStr;
+    self.dateStr = app.dateStr==nil?yesterday:app.dateStr;
+    NSLog(@"%@,%@",self.idStr,self.dateStr);
     [self login];
     
     //默认【下拉刷新】
@@ -126,6 +137,11 @@
 //    设置具体内容
     cell.lbProgress.text= [NSString stringWithFormat:@"%@/%@",m.kl_wcsw,m.sg_sjsw];
     cell.lbPosition.text = m.temp_pname;
+    
+    //自动折行设置
+    cell.lbPosition.numberOfLines = 0;
+
+    
     [cell addProgresswithTotal:100 withComplete:[m.baifenbi floatValue]*100];
     
     
@@ -213,6 +229,8 @@
         [self tellBackwithText:@"信息错误" withPic:@"Checkmark"];
         dispatch_async(dispatch_get_main_queue(), ^{
             dispatch_async(dispatch_get_main_queue(), ^{
+                NSSet *set = [NSSet setWithArray:@[@""]];
+                [JPUSHService setTags:set aliasInbackground:@""];
                 [self enterLoginPage];
             });
         });
@@ -228,7 +246,7 @@
     userinfo.userId = response[@"userId"];
     userinfo.loginStatus = YES;
     userinfo.userName = response[@"userName"];
-    userinfo.departName = response[@"departName"];
+    userinfo.departName = response[@"department"];
     userinfo.dutyName = response[@"dutyName"];
     userinfo.cellPhone = response[@"cellPhone"];
     userinfo.roleName = response[@"roleName"];
@@ -240,15 +258,48 @@
         [self tellBackwithText:@"信息错误" withPic:@"Checkmark"];
         dispatch_async(dispatch_get_main_queue(), ^{
             dispatch_async(dispatch_get_main_queue(), ^{
+                NSSet *set = [NSSet setWithArray:@[@""]];
+                [JPUSHService setTags:set aliasInbackground:@""];
                 [self enterLoginPage];
+                
             });
         });
     }else{
         NSLog(@"登录成功");
         [userinfo saveUserInfoToSandbox];
+        NSSet *set = [NSSet setWithArray:@[userinfo.userId]];
+        [JPUSHService setTags:set aliasInbackground:@""];
         
+        
+        // 请求plist-三级联动
+        [self getPlist];
     }
     
+}
+- (void)getPlist{
+    
+    UserInfo *userinfo = [UserInfo sharedUserInfo];
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.requestSerializer.timeoutInterval = 10.f;
+    NSDictionary *parameter = @{@"ryid":userinfo.userId};
+    /*
+     * desc  : 提交POST请求
+     * param :  URLString - 请求地址
+     *          parameters - 请求参数
+     *          success - 请求成功回调的block
+     *          failure - 请求失败回调的block
+     */
+    userinfo.sanji = @[@{@"cities":@[@{@"city":@"全部",@"areas":@[@"全部"]}],@"state":@"全部，"}];
+    [manager GET:@"http://112.124.30.42:8686/api/Progress/GetPlist" parameters:parameter progress:nil success:^(NSURLSessionTask *task, NSArray *responseObject) {
+        NSLog(@"%@",responseObject);
+        NSLog(@"请求成功");
+        if(responseObject != nil)
+        {
+            userinfo.sanji = responseObject;
+        }
+    } failure:^(NSURLSessionTask *operation, NSError *error) {
+        NSLog(@"请求失败");
+    }];
 }
 
 // 跳转登录

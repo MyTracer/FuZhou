@@ -7,6 +7,7 @@
 //
 
 #import "STPickerArea.h"
+#import "UserInfo.h"
 
 @interface STPickerArea()<UIPickerViewDataSource, UIPickerViewDelegate>
 
@@ -48,8 +49,19 @@
 
     self.arrayArea = [citys firstObject][@"area"];
 
-    self.province = self.arrayProvince[0];
-    self.city = self.arrayCity[0];
+    
+    if (self.arrayProvince.count != 0) {
+        self.province = self.arrayProvince[0];
+    }else{
+        self.province = @"";
+    }
+    
+    if (self.arrayCity.count != 0) {
+        self.city = self.arrayCity[0];
+    }else{
+        self.city = @"";
+    }
+    
     if (self.arrayArea.count != 0) {
         self.area = self.arrayArea[0];
     }else{
@@ -58,7 +70,7 @@
     
     // 2.设置视图的默认属性
     _heightPickerComponent = 32;
-    [self setTitle:@"请选择城市地区"];
+    [self setTitle:@"请选择标段信息"];
     [self.pickerView setDelegate:self];
     [self.pickerView setDataSource:self];
 
@@ -179,8 +191,9 @@
 - (NSArray *)arrayRoot
 {
     if (!_arrayRoot) {
-        NSString *path = [[NSBundle mainBundle]pathForResource:@"List" ofType:@"plist"];
-        _arrayRoot = [[NSArray alloc]initWithContentsOfFile:path];
+        _arrayRoot = [UserInfo sharedUserInfo].sanji;
+        
+        NSLog(@"%@",_arrayRoot);
     }
     return _arrayRoot;
 }

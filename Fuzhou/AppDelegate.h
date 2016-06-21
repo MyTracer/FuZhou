@@ -19,6 +19,8 @@ static BOOL isProduction = FALSE;
 
 @property (strong, nonatomic) UIWindow *window;
 
+@property (nonatomic,copy) NSString *idStr;
+@property (nonatomic,copy) NSString *dateStr;
 
 @end
 

@@ -9,8 +9,6 @@
 #import "SelectViewController.h"
 
 #import "STPickerArea.h"
-#import "STPickerSingle.h"
-#import "STPickerDate.h"
 #import <QuartzCore/QuartzCore.h>
 #import "MBProgressHUD.h"
 
@@ -19,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UISegmentedControl *Segmodel;
 @property (weak, nonatomic) IBOutlet UIDatePicker *datepicker;
 
+@property (weak, nonatomic) IBOutlet UITextView *texrview;
 
 @property (nonatomic,copy) NSString *idStr;
 @property (nonatomic,copy) NSString *dateStr;
@@ -34,7 +33,7 @@
     self.returnTextBlock = textBlock;
 }
 - (IBAction)okbtnClick:(UIBarButtonItem *)sender {
-    if ([self.textArea.text isEqualToString:@""]) {
+    if ([self.idStr isEqualToString:@"全部"]||[self.idStr isEqualToString:@""]||self.idStr == nil) {
         [self tellBackwithText:@"确认条件" withPic:@"Checkmark"];
     }else{
         // 提取时间
@@ -66,6 +65,8 @@
     
     self.dateStr = nil;
     self.idStr = nil;
+    
+    self.datepicker.date = [NSDate dateWithTimeIntervalSinceNow:-(24*60*60)];
 }
 
 
@@ -84,11 +85,12 @@
 
 - (void)pickerArea:(STPickerArea *)pickerArea province:(NSString *)province city:(NSString *)city area:(NSString *)area
 {
-    NSString *text = [NSString stringWithFormat:@"%@,%@,%@", province, city, area];
+    NSString *text = [NSString stringWithFormat:@"%@,%@,%@", province, city, [[area componentsSeparatedByString:@","]firstObject]];
     
     self.textArea.text = text;
+    self.texrview.text = [NSString stringWithFormat:@"标段详细信息\n%@\n%@\n%@", province, city, [[area componentsSeparatedByString:@","]firstObject]];
     
-    self.idStr = [[area componentsSeparatedByString:@","]firstObject];
+    self.idStr = [[area componentsSeparatedByString:@","]lastObject];
     
 }
 

@@ -469,7 +469,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="设计产量" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="p30-is-Qvo">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="设计产值" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="p30-is-Qvo">
                                                     <rect key="frame" x="15" y="12" width="64" height="20"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -700,7 +700,7 @@
                         <outlet property="lbsg_sjcz" destination="CGF-Ro-8Ga" id="dCm-bH-vFK"/>
                         <outlet property="lbsg_sjsw" destination="NDd-qR-jMZ" id="7cT-dI-E48"/>
                         <outlet property="lbsg_unit" destination="M4c-Sq-gjz" id="2LP-FN-lXZ"/>
-                        <outlet property="lbtemp_pname" destination="yQv-kJ-OqN" id="H1Y-Je-djH"/>
+                        <outlet property="lbtemp_bdname" destination="yQv-kJ-OqN" id="MIA-II-kk3"/>
                         <outlet property="lbtemp_pname1" destination="cCN-3g-eib" id="Hut-4i-0N5"/>
                         <outlet property="lbtemp_pname2" destination="Qde-AH-vBj" id="u0C-fS-cni"/>
                         <outlet property="lbtemp_pname3" destination="ODs-f3-vdY" id="xaw-gq-wFN"/>
@@ -994,7 +994,7 @@
         <scene sceneID="RPU-7m-RrT">
             <objects>
                 <navigationController id="a9W-Wj-7ON" userLabel="消息历史" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="批示消息" image="edit" selectedImage="edit_highlighted" id="zO0-6H-st3"/>
+                    <tabBarItem key="tabBarItem" title="批示消息" image="tabbar_contacts" selectedImage="tabbar_contactsHL" id="zO0-6H-st3"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="2CW-y2-G0n">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1011,7 +1011,7 @@
         <scene sceneID="Qdp-RH-4zY">
             <objects>
                 <navigationController id="Abb-jQ-b80" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="个人资料" image="user" selectedImage="user_highlighted" id="t1H-Po-ZJE"/>
+                    <tabBarItem key="tabBarItem" title="个人资料" image="tabbar_me" selectedImage="tabbar_meHL" id="t1H-Po-ZJE"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="nY3-6W-ftz">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1024,7 +1024,7 @@
             </objects>
             <point key="canvasLocation" x="1509" y="693"/>
         </scene>
-        <!--更多功能-->
+        <!--盾构监控-->
         <scene sceneID="lAX-cQ-Fpp">
             <objects>
                 <viewController id="FLU-RI-9LU" customClass="MoreViewController" sceneMemberID="viewController">
@@ -1037,17 +1037,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="更多功能" id="Zau-ze-acT"/>
+                    <navigationItem key="navigationItem" title="盾构监控" id="Zau-ze-acT"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1E2-Uq-PN7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1632" y="1189"/>
+            <point key="canvasLocation" x="1770" y="1355"/>
         </scene>
         <!--进度查询-->
         <scene sceneID="POs-X9-emh">
             <objects>
                 <navigationController id="6Iq-UM-Kgd" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="进度查询" image="search" selectedImage="search_highlighted" id="zij-mo-zvL"/>
+                    <tabBarItem key="tabBarItem" title="进度查询" image="tabbar_mainframe" selectedImage="tabbar_mainframeHL" id="zij-mo-zvL"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="KI8-RG-g0D">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1064,7 +1064,7 @@
         <scene sceneID="TdZ-Ex-5Us">
             <objects>
                 <navigationController id="YcV-CX-maa" userLabel="功能" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="更多功能" image="menu" selectedImage="menu_highlighted" id="6FG-0V-qR3"/>
+                    <tabBarItem key="tabBarItem" title="盾构监控" image="tabbar_discover" selectedImage="tabbar_discoverHL" id="6FG-0V-qR3"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="KVA-R6-F9V">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1169,6 +1169,13 @@
                                     <segment title="月"/>
                                 </segments>
                             </segmentedControl>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="标段详细信息" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="62d-Bc-Ske">
+                                <rect key="frame" x="20" y="491" width="560" height="109"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -1176,9 +1183,11 @@
                             <constraint firstItem="mfa-ja-6TZ" firstAttribute="leading" secondItem="l4y-M5-IF0" secondAttribute="leadingMargin" id="2GS-s3-UVm"/>
                             <constraint firstAttribute="trailingMargin" secondItem="AHb-ke-7SU" secondAttribute="trailing" constant="60" id="6b3-uU-ELw"/>
                             <constraint firstItem="572-RV-BvM" firstAttribute="width" secondItem="AHb-ke-7SU" secondAttribute="width" id="8np-5n-OEf"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="62d-Bc-Ske" secondAttribute="bottom" id="Fgv-v3-fIY"/>
                             <constraint firstItem="UWh-9V-U2q" firstAttribute="leading" secondItem="l4y-M5-IF0" secondAttribute="leadingMargin" id="Ha5-R2-cCG"/>
                             <constraint firstItem="Zxc-CM-dkA" firstAttribute="leading" secondItem="l4y-M5-IF0" secondAttribute="leadingMargin" id="MOB-KW-8vo"/>
                             <constraint firstItem="572-RV-BvM" firstAttribute="leading" secondItem="aRK-LA-aXp" secondAttribute="trailing" constant="10" id="R0x-Ci-LcZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="62d-Bc-Ske" secondAttribute="trailing" id="U5T-lv-IWM"/>
                             <constraint firstItem="572-RV-BvM" firstAttribute="centerY" secondItem="aRK-LA-aXp" secondAttribute="centerY" id="VJ2-6C-M3u"/>
                             <constraint firstItem="UWh-9V-U2q" firstAttribute="top" secondItem="Zxc-CM-dkA" secondAttribute="bottom" constant="22" id="VW8-IP-Soc"/>
                             <constraint firstAttribute="trailingMargin" secondItem="vov-Tw-Bbj" secondAttribute="trailing" constant="-20" id="XaT-YF-87c"/>
@@ -1187,8 +1196,10 @@
                             <constraint firstItem="vov-Tw-Bbj" firstAttribute="leading" secondItem="l4y-M5-IF0" secondAttribute="leadingMargin" constant="-20" id="i5S-nJ-0UC"/>
                             <constraint firstItem="aRK-LA-aXp" firstAttribute="leading" secondItem="l4y-M5-IF0" secondAttribute="leadingMargin" id="iSC-5y-KY7"/>
                             <constraint firstItem="mfa-ja-6TZ" firstAttribute="top" secondItem="vov-Tw-Bbj" secondAttribute="bottom" constant="44" id="kVj-D0-LUQ"/>
+                            <constraint firstItem="62d-Bc-Ske" firstAttribute="leading" secondItem="l4y-M5-IF0" secondAttribute="leadingMargin" id="lP8-5d-MKx"/>
                             <constraint firstItem="Zxc-CM-dkA" firstAttribute="top" secondItem="aRK-LA-aXp" secondAttribute="bottom" constant="44" id="mYl-CF-k3c"/>
                             <constraint firstItem="AHb-ke-7SU" firstAttribute="centerY" secondItem="mfa-ja-6TZ" secondAttribute="centerY" id="qOl-b5-n3p"/>
+                            <constraint firstItem="62d-Bc-Ske" firstAttribute="top" secondItem="UWh-9V-U2q" secondAttribute="bottom" constant="8" id="ubM-uV-NvR"/>
                             <constraint firstItem="572-RV-BvM" firstAttribute="height" secondItem="AHb-ke-7SU" secondAttribute="height" id="ucd-iK-WqY"/>
                             <constraint firstItem="vov-Tw-Bbj" firstAttribute="top" secondItem="l4y-M5-IF0" secondAttribute="topMargin" constant="22" id="wfS-CS-1Uu"/>
                         </constraints>
@@ -1199,6 +1210,7 @@
                     <connections>
                         <outlet property="Segmodel" destination="572-RV-BvM" id="DqG-xr-1KO"/>
                         <outlet property="datepicker" destination="UWh-9V-U2q" id="hPy-0g-L2e"/>
+                        <outlet property="texrview" destination="62d-Bc-Ske" id="4yO-q8-8h6"/>
                         <outlet property="textArea" destination="AHb-ke-7SU" id="H0p-XF-fAd"/>
                     </connections>
                 </viewController>
@@ -1210,13 +1222,13 @@
     <resources>
         <image name="buttongreen" width="193" height="81"/>
         <image name="buttongreen_highlighted" width="193" height="81"/>
-        <image name="edit" width="32" height="32"/>
-        <image name="edit_highlighted" width="32" height="32"/>
-        <image name="menu" width="32" height="32"/>
-        <image name="menu_highlighted" width="32" height="32"/>
-        <image name="search" width="32" height="32"/>
-        <image name="search_highlighted" width="32" height="32"/>
-        <image name="user" width="24" height="24"/>
-        <image name="user_highlighted" width="32" height="32"/>
+        <image name="tabbar_contacts" width="27" height="23"/>
+        <image name="tabbar_contactsHL" width="27" height="23"/>
+        <image name="tabbar_discover" width="23" height="23"/>
+        <image name="tabbar_discoverHL" width="23" height="23"/>
+        <image name="tabbar_mainframe" width="25" height="23"/>
+        <image name="tabbar_mainframeHL" width="25" height="23"/>
+        <image name="tabbar_me" width="23" height="23"/>
+        <image name="tabbar_meHL" width="23" height="23"/>
     </resources>
 </document>

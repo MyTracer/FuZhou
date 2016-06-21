@@ -8,6 +8,7 @@
 
 #import "UserTableViewController.h"
 #import "UserInfo.h"
+#import "JPUSHService.h"
 
 @interface UserTableViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *user;
@@ -43,6 +44,8 @@
 - (IBAction)userOut:(id)sender {
     [UserInfo sharedUserInfo].loginStatus = false;
     [[UserInfo sharedUserInfo] saveUserInfoToSandbox];
+    NSSet *set = [NSSet setWithArray:@[@""]];
+    [JPUSHService setTags:set aliasInbackground:@""];
     [self enterMainPage];
 }
 // 跳转主页

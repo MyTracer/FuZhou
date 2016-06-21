@@ -31,6 +31,7 @@
         self.baifenbi = dict[@"baifenbi"];
         self.infonote = dict[@"infonote"];
         self.remark = dict[@"remark"];
+        self.temp_bdname = dict[@"temp_bdname"];
     }
     return self;
 }

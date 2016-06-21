@@ -26,7 +26,8 @@
 {
     // 1.设置数据的默认值
     _title             = nil;
-    _font              = [UIFont systemFontOfSize:15];
+#pragma mark - 字体大小设置
+    _font              = [UIFont systemFontOfSize:17];
     _titleColor        = [UIColor blackColor];
     _borderButtonColor = RGB(205, 205, 205);
     _heightPicker      = 240;

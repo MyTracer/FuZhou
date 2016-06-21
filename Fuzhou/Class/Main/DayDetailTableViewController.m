@@ -14,7 +14,7 @@
 #import "MBProgressHUD.h"
 
 @interface DayDetailTableViewController ()
-@property (weak, nonatomic) IBOutlet UILabel *lbtemp_pname;
+@property (weak, nonatomic) IBOutlet UILabel *lbtemp_bdname;
 @property (weak, nonatomic) IBOutlet UILabel *lbsg_unit;
 @property (weak, nonatomic) IBOutlet UILabel *lbriqi;
 @property (weak, nonatomic) IBOutlet UILabel *lbsg_sjsw;
@@ -40,7 +40,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.lbtemp_pname.text = self.detailData.temp_pname;
+    self.lbtemp_bdname.text = self.detailData.temp_bdname;
     self.lbtemp_pname1.text = self.detailData.temp_pname1;
     self.lbtemp_pname2.text = self.detailData.temp_pname2;
     self.lbtemp_pname3.text = self.detailData.temp_pname3;

@@ -1,0 +1,246 @@
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "0q5-ef-ouF"; */
+"0q5-ef-ouF.text" = "Detail";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "1GW-MX-EkA"; */
+"1GW-MX-EkA.text" = "Detail";
+
+/* Class = "UIBarButtonItem"; title = "确定"; ObjectID = "2Xq-5X-y0Z"; */
+"2Xq-5X-y0Z.title" = "确定";
+
+/* Class = "UILabel"; text = "用户名"; ObjectID = "2aB-3A-z0a"; */
+"2aB-3A-z0a.text" = "用户名";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "2qM-aw-pQd"; */
+"2qM-aw-pQd.text" = "Detail";
+
+/* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."; ObjectID = "2xF-26-vkh"; */
+"2xF-26-vkh.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
+
+/* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."; ObjectID = "3fT-Sg-wjn"; */
+"3fT-Sg-wjn.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
+
+/* Class = "UILabel"; text = "施工名"; ObjectID = "3zI-Iq-w2O"; */
+"3zI-Iq-w2O.text" = "施工名";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "4Xf-7f-97i"; */
+"4Xf-7f-97i.text" = "Detail";
+
+/* Class = "UISegmentedControl"; 572-RV-BvM.segmentTitles[0] = "天"; ObjectID = "572-RV-BvM"; */
+"572-RV-BvM.segmentTitles[0]" = "天";
+
+/* Class = "UISegmentedControl"; 572-RV-BvM.segmentTitles[1] = "月"; ObjectID = "572-RV-BvM"; */
+"572-RV-BvM.segmentTitles[1]" = "月";
+
+/* Class = "UITextView"; text = "标段详细信息"; ObjectID = "62d-Bc-Ske"; */
+"62d-Bc-Ske.text" = "标段详细信息";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "6CA-gz-OFM"; */
+"6CA-gz-OFM.text" = "Detail";
+
+/* Class = "UITabBarItem"; title = "更多功能"; ObjectID = "6FG-0V-qR3"; */
+"6FG-0V-qR3.title" = "更多功能";
+
+/* Class = "UITableViewSection"; headerTitle = "详细信息"; ObjectID = "9h2-Dj-Uaf"; */
+"9h2-Dj-Uaf.headerTitle" = "详细信息";
+
+/* Class = "UITextField"; placeholder = "请选择标段"; ObjectID = "AHb-ke-7SU"; */
+"AHb-ke-7SU.placeholder" = "请选择标段";
+
+/* Class = "UILabel"; text = "分类三"; ObjectID = "ATV-iA-7px"; */
+"ATV-iA-7px.text" = "分类三";
+
+/* Class = "UIBarButtonItem"; title = "筛选"; ObjectID = "AZC-ev-ur6"; */
+"AZC-ev-ur6.title" = "筛选";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "AZI-hj-hdX"; */
+"AZI-hj-hdX.text" = "Detail";
+
+/* Class = "UISegmentedControl"; AqU-Ol-3wr.segmentTitles[0] = "day"; ObjectID = "AqU-Ol-3wr"; */
+"AqU-Ol-3wr.segmentTitles[0]" = "day";
+
+/* Class = "UISegmentedControl"; AqU-Ol-3wr.segmentTitles[1] = "month"; ObjectID = "AqU-Ol-3wr"; */
+"AqU-Ol-3wr.segmentTitles[1]" = "month";
+
+/* Class = "UILabel"; text = "时间"; ObjectID = "Bsk-Hy-187"; */
+"Bsk-Hy-187.text" = "时间";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "CGF-Ro-8Ga"; */
+"CGF-Ro-8Ga.text" = "Detail";
+
+/* Class = "UITableViewSection"; headerTitle = "详细资料"; ObjectID = "E7N-Qw-Bsh"; */
+"E7N-Qw-Bsh.headerTitle" = "详细资料";
+
+/* Class = "UILabel"; text = "姓名"; ObjectID = "Ere-hi-jek"; */
+"Ere-hi-jek.text" = "姓名";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "H2p-g7-rNS"; */
+"H2p-g7-rNS.text" = "Detail";
+
+/* Class = "UILabel"; text = "分类一"; ObjectID = "Hz8-gF-sQ8"; */
+"Hz8-gF-sQ8.text" = "分类一";
+
+/* Class = "UILabel"; text = "角色"; ObjectID = "KbV-kL-5uT"; */
+"KbV-kL-5uT.text" = "角色";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "M4c-Sq-gjz"; */
+"M4c-Sq-gjz.text" = "Detail";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "NDd-qR-jMZ"; */
+"NDd-qR-jMZ.text" = "Detail";
+
+/* Class = "UILabel"; text = "起始时间："; ObjectID = "NWi-H7-apj"; */
+"NWi-H7-apj.text" = "起始时间：";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "ODs-f3-vdY"; */
+"ODs-f3-vdY.text" = "Detail";
+
+/* Class = "UILabel"; text = "设计实物"; ObjectID = "P5j-Kt-zoX"; */
+"P5j-Kt-zoX.text" = "设计实物";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "Qde-AH-vBj"; */
+"Qde-AH-vBj.text" = "Detail";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "RyM-fb-Bwj"; */
+"RyM-fb-Bwj.text" = "Detail";
+
+/* Class = "UILabel"; text = "用户标示"; ObjectID = "SNR-n2-rMr"; */
+"SNR-n2-rMr.text" = "用户标示";
+
+/* Class = "UILabel"; text = "日期"; ObjectID = "UMj-v7-TjK"; */
+"UMj-v7-TjK.text" = "日期";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "V9W-z1-oYa"; */
+"V9W-z1-oYa.text" = "Detail";
+
+/* Class = "UITableViewSection"; headerTitle = "基本信息"; ObjectID = "Wih-jr-ObE"; */
+"Wih-jr-ObE.headerTitle" = "基本信息";
+
+/* Class = "UILabel"; text = "备注"; ObjectID = "Xfq-gV-rSk"; */
+"Xfq-gV-rSk.text" = "备注";
+
+/* Class = "UITableViewSection"; headerTitle = "说明信息"; ObjectID = "Xnm-Pt-Dd4"; */
+"Xnm-Pt-Dd4.headerTitle" = "说明信息";
+
+/* Class = "UITableViewSection"; headerTitle = "统计信息"; ObjectID = "Xz0-ts-kMP"; */
+"Xz0-ts-kMP.headerTitle" = "统计信息";
+
+/* Class = "UINavigationItem"; title = "更多功能"; ObjectID = "Zau-ze-acT"; */
+"Zau-ze-acT.title" = "更多功能";
+
+/* Class = "UILabel"; text = "时间："; ObjectID = "Zxc-CM-dkA"; */
+"Zxc-CM-dkA.text" = "时间：";
+
+/* Class = "UILabel"; text = "模式："; ObjectID = "aRK-LA-aXp"; */
+"aRK-LA-aXp.text" = "模式：";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "bch-2t-sy6"; */
+"bch-2t-sy6.text" = "Detail";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "cCN-3g-eib"; */
+"cCN-3g-eib.text" = "Detail";
+
+/* Class = "UIBarButtonItem"; title = "确定"; ObjectID = "cDh-e1-qwQ"; */
+"cDh-e1-qwQ.title" = "确定";
+
+/* Class = "UILabel"; text = "当日完成产值"; ObjectID = "cGe-8e-bnj"; */
+"cGe-8e-bnj.text" = "当日完成产值";
+
+/* Class = "UITableViewSection"; headerTitle = "基本资料"; ObjectID = "dBe-uj-pra"; */
+"dBe-uj-pra.headerTitle" = "基本资料";
+
+/* Class = "UILabel"; text = "标段"; ObjectID = "dmL-Bn-lRG"; */
+"dmL-Bn-lRG.text" = "标段";
+
+/* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."; ObjectID = "f02-X3-sLu"; */
+"f02-X3-sLu.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "fSp-l0-NHD"; */
+"fSp-l0-NHD.text" = "Detail";
+
+/* Class = "UILabel"; text = "情况说明"; ObjectID = "fbR-5d-DpQ"; */
+"fbR-5d-DpQ.text" = "情况说明";
+
+/* Class = "UILabel"; text = "开累完成实物"; ObjectID = "fvU-DF-uRX"; */
+"fvU-DF-uRX.text" = "开累完成实物";
+
+/* Class = "UINavigationItem"; title = "Title"; ObjectID = "g6u-3i-wp6"; */
+"g6u-3i-wp6.title" = "Title";
+
+/* Class = "UIBarButtonItem"; title = "取消"; ObjectID = "gbo-p8-GZ8"; */
+"gbo-p8-GZ8.title" = "取消";
+
+/* Class = "UILabel"; text = "批示信息"; ObjectID = "gdW-99-LGW"; */
+"gdW-99-LGW.text" = "批示信息";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "h2C-l4-iEq"; */
+"h2C-l4-iEq.text" = "Detail";
+
+/* Class = "UIBarButtonItem"; title = "取消"; ObjectID = "igg-Nt-tEM"; */
+"igg-Nt-tEM.title" = "取消";
+
+/* Class = "UILabel"; text = "职务"; ObjectID = "jE3-Su-Ctz"; */
+"jE3-Su-Ctz.text" = "职务";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "m3n-nM-h5o"; */
+"m3n-nM-h5o.text" = "Detail";
+
+/* Class = "UILabel"; text = "部门"; ObjectID = "mSd-is-Q7K"; */
+"mSd-is-Q7K.text" = "部门";
+
+/* Class = "UITableViewSection"; headerTitle = "基本信息"; ObjectID = "mWN-RA-kdB"; */
+"mWN-RA-kdB.headerTitle" = "基本信息";
+
+/* Class = "UILabel"; text = "标段："; ObjectID = "mfa-ja-6TZ"; */
+"mfa-ja-6TZ.text" = "标段：";
+
+/* Class = "UILabel"; text = "设计产量"; ObjectID = "p30-is-Qvo"; */
+"p30-is-Qvo.text" = "设计产量";
+
+/* Class = "UILabel"; text = "手机号"; ObjectID = "pSr-SA-UUa"; */
+"pSr-SA-UUa.text" = "手机号";
+
+/* Class = "UINavigationItem"; title = "消息记录"; ObjectID = "qWI-K6-FPY"; */
+"qWI-K6-FPY.title" = "消息记录";
+
+/* Class = "UILabel"; text = "结束时间："; ObjectID = "s78-dD-fqT"; */
+"s78-dD-fqT.text" = "结束时间：";
+
+/* Class = "UITabBarItem"; title = "个人资料"; ObjectID = "t1H-Po-ZJE"; */
+"t1H-Po-ZJE.title" = "个人资料";
+
+/* Class = "UILabel"; text = "当日完成实物"; ObjectID = "ta4-1O-5QE"; */
+"ta4-1O-5QE.text" = "当日完成实物";
+
+/* Class = "UIBarButtonItem"; title = "筛选"; ObjectID = "tyF-RJ-GQj"; */
+"tyF-RJ-GQj.title" = "筛选";
+
+/* Class = "UIBarButtonItem"; title = "注销"; ObjectID = "u69-4K-JBY"; */
+"u69-4K-JBY.title" = "注销";
+
+/* Class = "UINavigationItem"; title = "个人信息"; ObjectID = "udd-ej-NZ7"; */
+"udd-ej-NZ7.title" = "个人信息";
+
+/* Class = "UILabel"; text = "分类二"; ObjectID = "vMe-KF-QDd"; */
+"vMe-KF-QDd.text" = "分类二";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "vuF-Ar-cAU"; */
+"vuF-Ar-cAU.text" = "Detail";
+
+/* Class = "UILabel"; text = "实物单位"; ObjectID = "vwa-TH-Kt0"; */
+"vwa-TH-Kt0.text" = "实物单位";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "yQv-kJ-OqN"; */
+"yQv-kJ-OqN.text" = "Detail";
+
+/* Class = "UITabBarItem"; title = "批示消息"; ObjectID = "zO0-6H-st3"; */
+"zO0-6H-st3.title" = "批示消息";
+
+/* Class = "UITabBarItem"; title = "进度查询"; ObjectID = "zij-mo-zvL"; */
+"zij-mo-zvL.title" = "进度查询";
+
+/* Class = "UILabel"; text = "开累完成产值"; ObjectID = "zqO-et-sH1"; */
+"zqO-et-sH1.text" = "开累完成产值";
+
+/* Class = "UIButton"; normalTitle = "批  示"; ObjectID = "zxy-1Z-iVg"; */
+"zxy-1Z-iVg.normalTitle" = "批  示";

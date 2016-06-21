@@ -200,7 +200,7 @@
 			CGContextBeginPath(context);
 			CGContextMoveToPoint(context, center.x, center.y);
 			CGFloat startAngle = endAngle;
-			endAngle = originAngle;
+			// endAngle = originAngle;
 			CGContextAddArc(context, center.x, center.y, circleRadius, startAngle, originAngle, cgClockwise);
 			color = self.theme.incompletedColor.CGColor;
 			CGContextSetFillColorWithColor(context, color);

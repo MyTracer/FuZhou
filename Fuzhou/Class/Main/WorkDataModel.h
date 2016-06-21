@@ -24,6 +24,7 @@
 @property(nonatomic,copy) NSString *kl_wcsw; // 开累完成实物
 @property(nonatomic,copy) NSString *ks_wccz; // 开累完成产值
 @property(nonatomic,copy) NSString *baifenbi; // 完成百分比
+@property (nonatomic,copy) NSString *temp_bdname;
 
 @property (nonatomic,copy) NSString *infonote; // 情况说明
 @property (nonatomic,copy) NSString *remark; // 备注

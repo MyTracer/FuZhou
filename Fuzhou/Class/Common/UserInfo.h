@@ -22,6 +22,7 @@ singleton_interface(UserInfo);
 @property (nonatomic,copy) NSString *dutyName; // 职务
 @property (nonatomic,copy) NSString *cellPhone; // 手机号码
 @property (nonatomic,copy) NSString *roleName; // 角色
+@property (nonatomic,strong) NSArray *sanji; // 三级信息
 
 
 // 保存数据到沙盒
