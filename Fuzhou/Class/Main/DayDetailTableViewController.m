@@ -34,6 +34,9 @@
 
 @property (nonatomic,strong)MBProgressHUD *hud;
 
+@property (weak, nonatomic) IBOutlet UILabel *lbshiwu;
+@property (weak, nonatomic) IBOutlet UILabel *lbchanliang;
+@property (weak, nonatomic) IBOutlet UIButton *btnpishi;
 @end
 
 @implementation DayDetailTableViewController
@@ -51,15 +54,29 @@
     self.lbdw_dwcsw.text = self.detailData.dw_dwcsw;
     self.lbdw_dwccz.text = self.detailData.dw_dwccz;
     self.lbkl_wcsw.text = self.detailData.kl_wcsw;
-    self.lbks_wccz.text = self.detailData.ks_wccz;
+    self.lbks_wccz.text = self.detailData.kl_wccz;
     
     self.tvinfonote.text = self.detailData.infonote;
+    
+    self.tvinfonote.contentInset = UIEdgeInsetsMake(8.f, 0.f, -8.f, 0.f);
     self.tvremark.text = self.detailData.remark;
+    self.tvremark.contentInset = UIEdgeInsetsMake(8.f, 0.f, -8.f, 0.f);
     
     self.userid = [UserInfo sharedUserInfo].userId;
     self.tempid = [self.detailData.temp_bdid stringByAppendingString:self.detailData.temp_pid];
     self.date = self.detailData.riqi;
     
+    NSRange rang = NSMakeRange(6, 2);
+    if ([[self.lbriqi.text substringWithRange:rang ]isEqualToString:@"00"]){
+        self.lbshiwu.text = @"当月完成实物";
+        self.lbchanliang.text = @"当月完成产量";
+        self.btnpishi.enabled = false;
+    }else
+    {
+        self.lbshiwu.text = @"当天完成实物";
+        self.lbchanliang.text = @"当天完成产量";
+        self.btnpishi.enabled = true;
+    }
    
     
     

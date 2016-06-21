@@ -179,7 +179,7 @@
         self.area = @"";
     }
     
-    NSString *title = [NSString stringWithFormat:@"%@ %@ %@", self.province, self.city, self.area];
+    NSString *title = [NSString stringWithFormat:@"%@ %@ %@", self.province, self.city, [[self.area componentsSeparatedByString:@","]firstObject]];
     [self setTitle:title];
 
 }

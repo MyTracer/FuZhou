@@ -74,7 +74,17 @@
 }
 
 - (void)getData{
+    
+    NSString *url =@"http://112.124.30.42:8686/api/Progress/GetRileiDetail";
+    NSRange rang = NSMakeRange(6, 2);
+    if ([[self.dateStr substringWithRange:rang ] isEqualToString:@"00"]) {
+        NSLog(@"月进度");
+        url = @"http://112.124.30.42:8686/api/Progress/GetYueleiDetail";
+    }
+    
     // 加载等待
+    
+    
     [self.hud hideAnimated:YES];
     self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     //     请求的manager
@@ -88,7 +98,7 @@
      *          success - 请求成功回调的block
      *          failure - 请求失败回调的block
      */
-    [manager GET:@"http://112.124.30.42:8686/api/Progress/GetRileiDetail" parameters:parameter progress:nil success:^(NSURLSessionTask *task, NSArray *responseObject) {
+    [manager GET:url parameters:parameter progress:nil success:^(NSURLSessionTask *task, NSArray *responseObject) {
         
         self.workData = [WorkDataModel workDatawithArray:responseObject];
 //        NSLog(@"%d",self.workData.count);
@@ -207,6 +217,7 @@
 
 // 判断用户
 - (void)login{
+    
     UserInfo *userInfo = [UserInfo sharedUserInfo];
     //     请求的manager
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];

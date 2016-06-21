@@ -22,7 +22,7 @@
 @property(nonatomic,copy) NSString *dw_dwcsw; // 当日完成实物
 @property(nonatomic,copy) NSString *dw_dwccz; // 当日完成产值
 @property(nonatomic,copy) NSString *kl_wcsw; // 开累完成实物
-@property(nonatomic,copy) NSString *ks_wccz; // 开累完成产值
+@property(nonatomic,copy) NSString *kl_wccz; // 开累完成产值
 @property(nonatomic,copy) NSString *baifenbi; // 完成百分比
 @property (nonatomic,copy) NSString *temp_bdname;
 

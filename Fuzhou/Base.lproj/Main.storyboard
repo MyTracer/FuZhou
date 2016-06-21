@@ -692,6 +692,8 @@
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="btnpishi" destination="zxy-1Z-iVg" id="tQu-YT-9ce"/>
+                        <outlet property="lbchanliang" destination="cGe-8e-bnj" id="mpX-19-CtS"/>
                         <outlet property="lbdw_dwccz" destination="1GW-MX-EkA" id="MHS-wi-Duw"/>
                         <outlet property="lbdw_dwcsw" destination="fSp-l0-NHD" id="0fj-lS-hLa"/>
                         <outlet property="lbkl_wcsw" destination="0q5-ef-ouF" id="REU-H7-sxL"/>
@@ -700,6 +702,7 @@
                         <outlet property="lbsg_sjcz" destination="CGF-Ro-8Ga" id="dCm-bH-vFK"/>
                         <outlet property="lbsg_sjsw" destination="NDd-qR-jMZ" id="7cT-dI-E48"/>
                         <outlet property="lbsg_unit" destination="M4c-Sq-gjz" id="2LP-FN-lXZ"/>
+                        <outlet property="lbshiwu" destination="ta4-1O-5QE" id="LHg-Mb-KCu"/>
                         <outlet property="lbtemp_bdname" destination="yQv-kJ-OqN" id="MIA-II-kk3"/>
                         <outlet property="lbtemp_pname1" destination="cCN-3g-eib" id="Hut-4i-0N5"/>
                         <outlet property="lbtemp_pname2" destination="Qde-AH-vBj" id="u0C-fS-cni"/>

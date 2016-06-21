@@ -26,8 +26,9 @@
         self.sg_sjsw = dict[@"sg_sjsw"];
         self.sg_sjcz = dict[@"sg_sjcz"];
         self.dw_dwccz = dict[@"dw_dwccz"];
+        self.dw_dwcsw = dict[@"dw_dwcsw"];
         self.kl_wcsw = dict[@"kl_wcsw"];
-        self.ks_wccz = dict[@"ks_wccz"];
+        self.kl_wccz = dict[@"kl_wccz"];
         self.baifenbi = dict[@"baifenbi"];
         self.infonote = dict[@"infonote"];
         self.remark = dict[@"remark"];
