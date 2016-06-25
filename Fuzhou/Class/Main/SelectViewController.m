@@ -61,6 +61,8 @@
 {
     [super viewDidLoad];
     
+    self.datepicker.maximumDate = [NSDate date];
+    
     self.textArea.delegate = self;
     
     self.dateStr = nil;
@@ -108,6 +110,7 @@
 
 - (void)viewWillDisappear:(BOOL)animated
 {
+    
     [super viewWillDisappear:YES];
     [self.hud hideAnimated:YES];
 }

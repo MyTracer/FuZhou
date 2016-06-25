@@ -82,7 +82,8 @@
     // Do any additional setup after loading the view.
    
     
-    
+    self.startDate.maximumDate = [NSDate date];
+    self.endDate.maximumDate = [NSDate date];
     
     self.startDateStr = nil;
     self.endDateStr = nil;

@@ -17,4 +17,6 @@
 
 @interface DayTableViewController : UITableViewController
 @property (nonatomic,strong) NSArray *workData;
+@property (nonatomic,copy) NSString *idStr;
+@property (nonatomic,copy) NSString *dateStr;
 @end

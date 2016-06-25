@@ -23,8 +23,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *lbPositon;
 @property (weak, nonatomic) IBOutlet UILabel *lbProgress;
 
-@property (nonatomic,copy) NSString *idStr;
-@property (nonatomic,copy) NSString *dateStr;
+
 
 @property (nonatomic,strong)MBProgressHUD *hud;
 
@@ -302,7 +301,7 @@
      */
     userinfo.sanji = @[@{@"cities":@[@{@"city":@"全部",@"areas":@[@"全部"]}],@"state":@"全部，"}];
     [manager GET:@"http://112.124.30.42:8686/api/Progress/GetPlist" parameters:parameter progress:nil success:^(NSURLSessionTask *task, NSArray *responseObject) {
-        NSLog(@"%@",responseObject);
+//        NSLog(@"%@",responseObject);
         NSLog(@"请求成功");
         if(responseObject != nil)
         {
@@ -335,6 +334,11 @@
 {
     [super viewWillDisappear:YES];
     [self.hud hideAnimated:YES];
+    [UIApplication sharedApplication].applicationIconBadgeNumber=0;
+    if([JPUSHService setBadge:0])
+    {
+        NSLog(@"清零成功");
+    }
 }
 
 // 相关提示

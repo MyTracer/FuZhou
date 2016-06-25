@@ -73,12 +73,11 @@
         self.btnpishi.enabled = false;
     }else
     {
-        self.lbshiwu.text = @"当天完成实物";
-        self.lbchanliang.text = @"当天完成产量";
+        self.lbshiwu.text = @"当日完成实物";
+        self.lbchanliang.text = @"当日完成产量";
         self.btnpishi.enabled = true;
     }
    
-    
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;

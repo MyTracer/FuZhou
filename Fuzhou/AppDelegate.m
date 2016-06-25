@@ -76,7 +76,12 @@
                           channel:channel
                  apsForProduction:isProduction
             advertisingIdentifier:nil];
-    
+    // 图标
+    [UIApplication sharedApplication].applicationIconBadgeNumber=0;
+    if([JPUSHService setBadge:0])
+    {
+        NSLog(@"清零成功");
+    }
     //     用户登录验证
     /*
      1.读取本地文件
@@ -193,7 +198,13 @@ fetchCompletionHandler:
 //    NSLog(@"收到通知:%@", [self logDic:userInfo]);
     self.idStr = userInfo[@"id"];
     self.dateStr = userInfo[@"date"];
-    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+    [UIApplication sharedApplication].applicationIconBadgeNumber=0;
+    if([JPUSHService setBadge:0])
+    {
+        NSLog(@"清零成功");
+        
+    }
+    
     [self enterMainPage];
     completionHandler(UIBackgroundFetchResultNewData);
 }
