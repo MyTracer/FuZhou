@@ -31,6 +31,14 @@
 
 - (IBAction)loginbtnClick:(id)sender {
     [self.view endEditing:YES];
+    
+    /*
+     用户名：tanfm
+     密码：123456
+     */
+    
+    
+    
     // 请求参数
     self.lgntext =  [self.user.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     self.pwdtext = [[self.pwd.text md5String] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
